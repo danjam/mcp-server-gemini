@@ -36,6 +36,7 @@ A powerful MCP (Model Context Protocol) server that brings Google's latest Gemin
 1. **Get Gemini API Key**
    - Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
    - Create a new API key
+   - **IMPORTANT**: Keep your API key secure and never commit it to version control
 
 2. **Configure Your MCP Client**
 
@@ -156,6 +157,10 @@ cd mcp-server-gemini
 # Install dependencies
 npm install
 
+# Set up environment variables
+cp .env.example .env
+# Edit .env and add your GEMINI_API_KEY
+
 # Start development server
 npm run dev
 ```
@@ -181,8 +186,11 @@ Contributions are welcome! Please see our [Contributing Guide](CONTRIBUTING.md).
 ## Security
 
 - API keys are handled via environment variables only
+- Never commit API keys to version control
+- The `.claude/` directory is excluded from git
 - No sensitive data is logged or stored
 - Regular security updates
+- If your API key is exposed, regenerate it immediately in Google Cloud Console
 
 ## License
 
