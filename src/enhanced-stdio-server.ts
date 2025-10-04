@@ -272,7 +272,7 @@ class EnhancedStdioMCPServer {
       },
       {
         name: 'analyze_image',
-        description: 'Analyze images using Gemini vision capabilities',
+        description: 'Analyze images using Gemini vision capabilities. Either imageUrl or imageBase64 must be provided.',
         inputSchema: {
           type: 'object',
           properties: {
@@ -282,11 +282,11 @@ class EnhancedStdioMCPServer {
             },
             imageUrl: {
               type: 'string',
-              description: 'URL of the image to analyze'
+              description: 'URL of the image to analyze (provide either this or imageBase64)'
             },
             imageBase64: {
               type: 'string',
-              description: 'Base64-encoded image data (alternative to URL)'
+              description: 'Base64-encoded image data (provide either this or imageUrl)'
             },
             model: {
               type: 'string',
@@ -295,11 +295,7 @@ class EnhancedStdioMCPServer {
               default: 'gemini-2.5-flash'
             }
           },
-          required: ['prompt'],
-          oneOf: [
-            { required: ['imageUrl'] },
-            { required: ['imageBase64'] }
-          ]
+          required: ['prompt']
         }
       },
       {
